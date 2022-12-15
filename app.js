@@ -19,8 +19,16 @@ const getComputerChoice = () => {
   return result[Math.floor(Math.random()*3)]
 }
 
-
 const playRound = (playerChoice, computerChoice) => {
+
+    if(playerScore === 5){
+      winner.textContent = "Player Wins!"
+      return
+    } else if (computerScore === 5){
+      winner.textContent = "Computer Wins!"
+      return
+    }
+
 
     if(playerChoice === computerChoice){
         console.log("draw");
@@ -34,13 +42,13 @@ const playRound = (playerChoice, computerChoice) => {
       (playerChoice === 'scissors' && computerChoice === "paper")){
       playerScore++;
       playerScoreElem.textContent = playerScore;
-      winner.textContent = "Player wins";
+      winner.textContent = "Player wins the round";
       console.log('player')
       return 'player';
     } else {
       computerScore++;
       computerScoreElem.textContent = computerScore;
-      winner.textContent = "Computer wins";
+      winner.textContent = "Computer wins the round";
       console.log('com')
       return 'computer';
     }
